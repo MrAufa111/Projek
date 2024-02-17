@@ -6,6 +6,8 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        $this->load->view('welcome_message');
+        $data['page'] = 'admin/index';
+        $data['title'] = 'Dashboard';
+        $this->load->view('admin/templates/index', $data);
     }
 }

@@ -6,8 +6,8 @@ class Index extends CI_Controller
 
     public function index()
     {
-        $data['page'] = 'admin/index';
-        $data['title'] = 'Dashboard';
-        $this->load->view('admin/templates/index', $data);
+        $data['page'] = 'home/index';
+        $data['title'] = 'Home';
+        $this->load->view('home/templates/index', $data);
     }
 }
