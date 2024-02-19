@@ -31,7 +31,7 @@
     <!-- End Hero -->
 
     <?php
-    $directory = isset($page) ? dirname($page) : 'admin';
+    $directory = isset($page) ? dirname($page) : 'home';
     $page = isset($page) ? basename($page) : 'index';
     $contentFile = APPPATH . 'views/' . $directory . '/' . $page . '.php';
 
