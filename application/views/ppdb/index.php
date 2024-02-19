@@ -1,24 +1,28 @@
 <section id="" class="">
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="<?= base_url() ?>assets/img/banner/banner1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="<?= base_url() ?>assets/img/banner/banner2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="<?= base_url() ?>assets/img/banner/banner3.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="<?= base_url() ?>assets/img/banner/banner4.jpg" class="d-block w-100" alt="...">
-            </div>
+            <?php
+
+            $smallestPosition = null;
+            $activeClass = 'active';
+            foreach ($banner as $b) {
+
+                if ($smallestPosition === null || $b['Position'] < $smallestPosition) {
+
+                    $smallestPosition = $b['Position'];
+                }
+                $class = ($b['Position'] === $smallestPosition) ? $activeClass : '';
+                echo '<div class="carousel-item ' . $class . '" data-bs-interval="5000">';
+                echo '<img src="' . base_url() . 'assets/img/banner/' . $b['image'] . '" class="d-block w-100" width="100%" alt="...">';
+                echo '</div>';
+            }
+            ?>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -132,7 +136,6 @@
                             </p>
                             <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                             <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -144,7 +147,6 @@
                             </p>
                             <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                             <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
                         </div>
                     </div>
 
@@ -157,7 +159,6 @@
                             </p>
                             <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                             <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
                         </div>
                     </div>
 
@@ -170,7 +171,6 @@
                             </p>
                             <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                             <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
                         </div>
                     </div>
 
@@ -183,7 +183,6 @@
                             </p>
                             <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                             <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
                         </div>
                     </div>
 
